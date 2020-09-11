@@ -4,6 +4,18 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+<!--   sitemesh decorators -->
+  <filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+<!--   end sitemesh decorators -->
+	
 <!--   <servlet> -->
 <!--     <description></description> -->
 <!--     <display-name>DefaultController</display-name> -->
