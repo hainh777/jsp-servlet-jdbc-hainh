@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.javaweb.model.UserModel;
 import com.javaweb.service.INewsService;
-@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/thoat"})
+@WebServlet(urlPatterns = {"/trang-chu", "/thoat"})
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 7812242845740990735L;
 	
@@ -24,7 +24,7 @@ public class HomeController extends HttpServlet {
 		model.setFullName("Hai Nonggggg");
 		request.setAttribute("model", model);
 		
-		newsSV.testinject();
+//		newsSV.testinject();
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 		rd.forward(request, response);
