@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.javaweb.model.UserModel;
 import com.javaweb.service.INewsService;
+import com.javaweb.util.SessionUtil;
 @WebServlet(urlPatterns = {"/trang-chu", "/thoat"})
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 7812242845740990735L;
@@ -20,9 +21,8 @@ public class HomeController extends HttpServlet {
 	INewsService newsSV;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserModel model = new UserModel();
-		model.setFullName("Hai Nonggggg");
-		request.setAttribute("model", model);
+		UserModel userLogin = (UserModel) SessionUtil.getInstance().getValue(request, "USERLOGINMODEL");
+		request.setAttribute("model", userLogin);
 		
 //		newsSV.testinject();
 		

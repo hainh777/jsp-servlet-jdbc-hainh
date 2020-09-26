@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.javaweb.model.UserModel;
 import com.javaweb.service.IUserService;
 import com.javaweb.util.FormUtil;
+import com.javaweb.util.SessionUtil;
 
 @WebServlet({ "/dang-nhap", "/login" })
 public class LoginController extends HttpServlet {
@@ -40,6 +41,7 @@ public class LoginController extends HttpServlet {
 //		UserModel loginInfo = FormUtil.toModel2(new UserModel(), request); // cách 2. như trên nhưng khác phần Truyền tham số là model đã được khơi tạo
 		UserModel model = userService.findByUsernameAndPasswordAndStatus(loginInfo.getUserName(), loginInfo.getPassword(), 1);
 		if(model != null) {
+			SessionUtil.getInstance().putValue(request, "USERLOGINMODEL", model);
 			if(model.getRole().getCode().equals("USER")) {
 				response.sendRedirect(request.getContextPath()+"/trang-chu");
 			}else if(model.getRole().getCode().equals("ADMIN")) {
