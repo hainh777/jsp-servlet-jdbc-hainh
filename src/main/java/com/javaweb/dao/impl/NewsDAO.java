@@ -5,7 +5,7 @@ import javax.annotation.ManagedBean;
 import com.javaweb.dao.INewsDAO;
 
 @ManagedBean
-public class NewsDAO extends AbstractDAO implements INewsDAO {
+public class NewsDAO extends GenericDAO<Object> implements INewsDAO {
 
 	@Override
 	public void testinject() {

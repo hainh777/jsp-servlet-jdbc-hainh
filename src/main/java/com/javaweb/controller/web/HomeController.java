@@ -24,7 +24,7 @@ public class HomeController extends HttpServlet {
 		model.setFullName("Hai Nonggggg");
 		request.setAttribute("model", model);
 		
-		newsSV.testinject();
+//		newsSV.testinject();
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 		rd.forward(request, response);
