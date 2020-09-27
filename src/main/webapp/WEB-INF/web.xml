@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>jsp servlet jdbc</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
-<!--   sitemesh decorators -->
-  <filter>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>jsp servlet jdbc</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- sitemesh decorators -->
+	<filter>
 		<filter-name>sitemesh</filter-name>
 		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
 	</filter>
@@ -14,16 +17,28 @@
 		<filter-name>sitemesh</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-<!--   end sitemesh decorators -->
+	<!-- end sitemesh decorators -->
+
+	<!-- servlet filter -->
+	<filter>
+		<filter-name>servletFilter</filter-name>
+		<filter-class>com.javaweb.filter.AuthorizationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>servletFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- END servlet filter -->
 	
-<!--   <servlet> -->
-<!--     <description></description> -->
-<!--     <display-name>DefaultController</display-name> -->
-<!--     <servlet-name>DefaultController</servlet-name> -->
-<!--     <servlet-class>com.javaweb.controller.web.DefaultController</servlet-class> -->
-<!--   </servlet> -->
-<!--   <servlet-mapping> -->
-<!--     <servlet-name>DefaultController</servlet-name> -->
-<!--     <url-pattern>/DefaultController</url-pattern> -->
-<!--   </servlet-mapping> -->
+
+	<!-- <servlet> -->
+	<!-- <description></description> -->
+	<!-- <display-name>DefaultController</display-name> -->
+	<!-- <servlet-name>DefaultController</servlet-name> -->
+	<!-- <servlet-class>com.javaweb.controller.web.DefaultController</servlet-class> -->
+	<!-- </servlet> -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>DefaultController</servlet-name> -->
+	<!-- <url-pattern>/DefaultController</url-pattern> -->
+	<!-- </servlet-mapping> -->
 </web-app>
